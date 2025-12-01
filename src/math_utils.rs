@@ -80,7 +80,7 @@ pub fn is_prime(n: u64) -> bool {
         n if n % 2 == 0 => false,
         _ => {
             let sqrt_n = (n as f64).sqrt() as u64;
-            !(3..=sqrt_n).step_by(2).any(|i| n % i == 0)
+            !(3..=sqrt_n).step_by(2).any(|i| n.is_multiple_of(i))
         }
     }
 }
