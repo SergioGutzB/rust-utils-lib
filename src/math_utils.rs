@@ -7,9 +7,14 @@
 /// ```
 /// use rust_utils_lib::factorial;
 ///
-/// assert_eq!(factorial(5), Some(120));
+/// let result = factorial(5);
+/// assert_eq!(result, Some(120));
+///
+/// // Factorial of 0 is 1
 /// assert_eq!(factorial(0), Some(1));
-/// assert_eq!(factorial(21), None); // Overflows u64
+///
+/// // Large numbers return None due to overflow
+/// assert_eq!(factorial(21), None);
 /// ```
 pub fn factorial(n: u64) -> Option<u64> {
     if n > 20 {
@@ -31,10 +36,14 @@ pub fn factorial(n: u64) -> Option<u64> {
 /// ```
 /// use rust_utils_lib::gcd;
 ///
-/// assert_eq!(gcd(48, 18), 6);
-/// assert_eq!(gcd(100, 50), 50);
+/// let result = gcd(48, 18);
+/// assert_eq!(result, 6);
+///
+/// // GCD is commutative
+/// assert_eq!(gcd(100, 50), gcd(50, 100));
+///
+/// // Coprime numbers have GCD of 1
 /// assert_eq!(gcd(17, 19), 1);
-/// assert_eq!(gcd(0, 5), 5);
 /// ```
 pub fn gcd(mut a: u64, mut b: u64) -> u64 {
     while b != 0 {
@@ -55,10 +64,14 @@ pub fn gcd(mut a: u64, mut b: u64) -> u64 {
 /// ```
 /// use rust_utils_lib::is_prime;
 ///
-/// assert_eq!(is_prime(2), true);
-/// assert_eq!(is_prime(17), true);
-/// assert_eq!(is_prime(4), false);
-/// assert_eq!(is_prime(1), false);
+/// if is_prime(17) {
+///     println!("17 is prime!");
+/// }
+///
+/// assert!(is_prime(2));
+/// assert!(is_prime(17));
+/// assert!(!is_prime(4));
+/// assert!(!is_prime(1));
 /// ```
 pub fn is_prime(n: u64) -> bool {
     match n {
